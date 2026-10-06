@@ -23,12 +23,11 @@ GitHub Pages publica archivos estáticos. Un sistema real necesita un backend se
 
 ## Publicación con GitHub Pages
 
-1. Crear un repositorio público y subir este proyecto, excluyendo `.git`, `.openai` y cualquier credencial.
-2. En **Settings → Pages → Build and deployment → Source**, seleccionar **GitHub Actions**.
-3. Ejecutar el workflow **Publicar visualizador** o subir un commit a `main`.
-4. Confirmar que el workflow termina correctamente y abrir la URL que devuelve el paso de despliegue.
+[Visualizador público](https://saulpulido52.github.io/TodosIMSS/).
 
-El workflow publica únicamente `dist/`. El código y las verificaciones permanecen visibles para revisión.
+Pages publica desde la rama `main` y la carpeta raíz `/ (root)`. El archivo `index.html` de la raíz carga los scripts de `dist/`; por eso la URL principal abre la aplicación, no el README. El archivo `.nojekyll` evita el procesamiento de Jekyll.
+
+El workflow **Verificar visualizador** ejecuta las comprobaciones de JavaScript y participación. GitHub publica mediante su flujo integrado **pages-build-deployment** al actualizar `main`.
 
 ## Revisión local
 
