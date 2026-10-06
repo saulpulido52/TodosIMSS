@@ -11,7 +11,7 @@ function option(value,label){const o=document.createElement('option');o.value=va
 function fill(el,items,first){el.replaceChildren();if(first)el.append(option('',first));items.forEach(([v,n])=>el.append(option(v,n)));}
 function selectedState(){return DATA.find(s=>s.id===scope.state);}
 function selectedCity(){return selectedState()?.cities.find(c=>c.name===scope.city);}
-function tab(id){if(!['panorama','votar','mesa'].includes(id))throw Error('Sección inválida');document.querySelectorAll('.content-tab').forEach(e=>e.hidden=e.id!==id);document.querySelectorAll('.tab').forEach(e=>{e.setAttribute('aria-selected',String(e.id==='t-'+id));e.tabIndex=e.id==='t-'+id?0:-1;});}
+function tab(id){if(!['panorama','votar','mesa','fondos'].includes(id))throw Error('Sección inválida');document.querySelectorAll('.content-tab').forEach(e=>e.hidden=e.id!==id);document.querySelectorAll('.tab').forEach(e=>{e.setAttribute('aria-selected',String(e.id==='t-'+id));e.tabIndex=e.id==='t-'+id?0:-1;});}
 function setState(id){if(id&&!DATA.some(s=>s.id===id))throw Error('Estado inválido');scope={state:id,city:'',unit:''};$('stateSelect').value=id;fill($('citySelect'),(selectedState()?.cities||[]).map(c=>[c.name,c.name]),'Todas las ciudades');$('citySelect').disabled=!id;fill($('unitSelect'),[],'Todas las unidades');$('unitSelect').disabled=true;render();}
 function setCity(name){scope.city=name;scope.unit='';fill($('unitSelect'),(selectedCity()?.units||[]).map(u=>[u.id,u.name]),'Todas las unidades');$('unitSelect').disabled=!name;render();}
 function setUnit(id){scope.unit=id;render();}
