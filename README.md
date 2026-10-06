@@ -23,7 +23,7 @@ GitHub Pages publica archivos estáticos. Un sistema real necesita un backend se
 
 ## Publicación con GitHub Pages
 
-[Visualizador público](https://saulpulido52.github.io/TodosIMSS/).
+[Visualizador público](https://wexdoc.github.io/TodosIMSS/).
 
 Pages publica desde la rama `main` y la carpeta raíz `/ (root)`. El archivo `index.html` de la raíz carga los scripts de `dist/`; por eso la URL principal abre la aplicación, no el README. El archivo `.nojekyll` evita el procesamiento de Jekyll.
 
